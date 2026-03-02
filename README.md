@@ -58,21 +58,22 @@ Tasks:
 ###  Login – JWT Token Response
 Shows successful authentication and returned JWT token.
 
-![Login Screenshot](screenshots/login.png)
+![Login Screenshot](screenshots/login-jwt.png)
 
 ---
 
 ### 📋 User-Specific Task Response
 Demonstrates role-based access where users can only view their own tasks.
 
-![Tasks Screenshot](screenshots/tasks.png)
+![Tasks Screenshot](screenshots/user-specific-admin-sees-all.png)
 
+![Tasks Screenshot](screenshots/user-specific-task.png)
 ---
 
 ###  Swagger UI Documentation
 Interactive API documentation generated using SpringDoc OpenAPI.
 
-![Swagger Screenshot](screenshots/swagger.png)
+![Swagger Screenshot](screenshots/swagger-ui.png)
 
 
 ## 📄 Swagger Documentation
