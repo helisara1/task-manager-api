@@ -65,7 +65,7 @@ logger.info("Creating task for logged-in user {}", username);
 
     
     // ---------------- GET ALL ----------------
-public Page<Task> getTasks(int page, int size) {
+    public Page<TaskResponseDTO> getTasks(int page, int size) {
 
     String username = SecurityContextHolder
             .getContext()
@@ -78,16 +78,20 @@ public Page<Task> getTasks(int page, int size) {
 
     logger.info("Fetching tasks for user {}", currentUser.getId());
 
+    Page<Task> tasks;
+
     if (currentUser.getRole() == Role.ADMIN) {
-        return taskRepository.findByDeletedFalse(PageRequest.of(page, size));
+        tasks = taskRepository.findByDeletedFalse(PageRequest.of(page, size));
+    } else {
+        tasks = taskRepository.findByUserIdAndDeletedFalse(
+                currentUser.getId(),
+                PageRequest.of(page, size)
+        );
     }
 
-    return taskRepository.findByUserIdAndDeletedFalse(
-            currentUser.getId(),
-            PageRequest.of(page, size)
-    );
+    // 🔥 Convert Entity → DTO
+    return tasks.map(this::mapToResponse);
 }
-
     // ---------------- UPDATE STATUS ----------------
 
     public TaskResponseDTO updateStatus(Long taskId, TaskStatus newStatus) {

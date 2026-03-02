@@ -44,11 +44,11 @@ public class TaskController {
 
     // ---------------- GET (User-Specific / Admin-All) ----------------
     @GetMapping
-    public ResponseEntity<ApiResponse<Page<Task>>> getTasks(
+    public ResponseEntity<ApiResponse<Page<TaskResponseDTO>>> getTasks(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "5") int size) {
 
-        Page<Task> tasks = taskService.getTasks(page, size);
+        Page<TaskResponseDTO> tasks = taskService.getTasks(page, size);
 
         return ResponseEntity.ok(
                 new ApiResponse<>("Tasks fetched successfully", tasks)
