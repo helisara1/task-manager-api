@@ -1,6 +1,7 @@
 # Task Manager API
-
-A secure REST API built using Spring Boot with JWT authentication and role-based access control.
+Developed a secure Task Management REST API using Spring Boot with JWT-based authentication and role-based access control (ADMIN/USER).
+Implemented user-specific task visibility, pagination, soft delete, workflow validation, and DTO-based secure response handling.
+Integrated Swagger for API documentation and followed clean layered architecture (Controller–Service–Repository) with MySQL persistence.
 
 ## Features
 
@@ -60,10 +61,9 @@ Shows successful authentication and returned JWT token.
 
 ![Login Screenshot](screenshots/login-jwt.png)
 
----
 
 ### 📋 User-Specific Task Response
-Demonstrates role-based access where users can only view their own tasks.
+Demonstrates role-based access where users can only view their own tasks. And Admin can see all user's task
 
 ![Tasks Screenshot](screenshots/user-specific-admin-sees-all.png)
 
@@ -115,20 +115,6 @@ http://localhost:8080/swagger-ui/index.html
 - security  
 - dto  
 - exception  
-
-
-
-## 📈 Learning Highlights
-
-This project demonstrates:
-
-- Secure REST API development
-- Stateless authentication using JWT
-- Role-based authorization logic
-- DTO mapping for secure responses
-- Soft delete implementation
-- Pagination with Spring Data
-- Clean layered architecture
 
 ---
 
